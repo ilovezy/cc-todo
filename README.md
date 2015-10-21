@@ -26,7 +26,7 @@ Perhaps look for another way to finish this??
 - index.html是materialize样式的很漂亮的版本
 - 使用方法
 
-打开控制台 `npm install` 之后 `bower install`
+打开控制台输入 `bower install` 回车，然后用浏览器打开index.html
 然后再浏览器打开就能看到效果了
 
 ## Todo
