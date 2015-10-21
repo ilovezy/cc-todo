@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="TodoModule">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+    .done-true {
+        text-decoration: line-through;
+        color: grey;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container" ng-controller="TodoCtrl">
+        <h2 class="text-center">total todos: {{getTotalTodos()}}</h2>
+
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="todo in todos">
+                <input type="checkbox" ng-model="todo.done">
+                <span class="done-{{todo.done}}">{{todo.text}}</span>
+            </li>
+        </ul>
+
+        <form class="form-horizontal">
+            <input type="text" class="form-control" placeholder="" ng-model="formTodoText" style="display: inline-block; max-width: 200px;">
+            <button ng-click="addTodo()" class="btn btn-default">
+                <i class="glyphicon glyphicon-plus"></i> add
+            </button>
+
+            <button ng-click="cleanCompletedTodo()" class="btn btn-default">
+                <i class="glyphicon glyphicon-trash"></i> clean
+            </button>
+        </form>
+    </div>
+
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="js/test-todo.js"></script>
+</body>
+
+</html>

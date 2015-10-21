@@ -3,25 +3,35 @@ var todoModule = angular.module('todoModule', [])
 todoModule.controller('todoController', ['$scope', function($scope) {
 
     $scope.todoList = [{
-        todoNote: 'hello world',
-        'done': true
+        todoNote: 'helloworld',
+        done: true
     }, {
-        todoNote: 'hello cc',
-        'done': false
+        todoNote: 'hellocc',
+        done: false
     }, {
-        todoNote: 'hello zy',
-        'done': false
+        todoNote: 'hellozy',
+        done: false
     }, {
-        todoNote: 'hello qq',
-        'done': false
+        todoNote: 'helloqq',
+        done: false
     }];
 
     $scope.addTodo = function(todoNote) {
-        console.log(todoNote)
-
         $scope.todoList.push({
             todoNote: $scope.todoNote,
             done: false
         })
+
+        $scope.todoNote = '';
+    }
+
+    $scope.cleanTodo = function() {
+        var oldTodoList = $scope.todoList;
+        $scope.todoList = [];
+        angular.forEach(oldTodoList, function(todoItem, key) {
+            if(!todoItem.done) {
+                $scope.todoList.push(todoItem)
+            }
+        });
     }
 }])

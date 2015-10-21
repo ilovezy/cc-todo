@@ -14,16 +14,16 @@
             <input type="text" name="todoNote" placeholder="todo what" ng-model="todoNote">
 
             <div class="right">
-                <button class="btn waves-effect" ng-click="addTodo(todoNote)">
+                <button class="btn waves-effect" ng-click="addTodo(todoNote)" ng-disabled="!todoNote">
                     add todo
                 </button>
-                <button class="btn waves-effect pink lighten-3 " ng-click="cleanTodo()">clean</button>
+                <button class="btn waves-effect red lighten-2" ng-click="cleanTodo()">clean</button>
             </div>
         </form>
 
         <ul class="collection z-depth-1">
             <li class="collection-item" ng-repeat="item in todoList">
-                <input type="checkbox" id="{{item.todoNote}}" />
+                <input type="checkbox" ng-checked="{{item.done}}" id="{{item.todoNote}}" />
                 <label for="{{item.todoNote}}" style="display: block;">{{item.todoNote}}</label>
             </li>
         </ul>
