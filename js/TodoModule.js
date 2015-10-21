@@ -20,15 +20,24 @@ todoModule.value('todoListDefault', [{
 
 todoModule.controller('todoController', ['$scope', 'todoListDefault', function($scope, todoListDefault) {
 
-    $scope.todoList = todoListDefault;
+    $scope.todoList = localStorage.getItem('todoList') || todoListDefault;
+
+    // if(!localStorage.getItem('todoList')) {
+    //     localStorage.setItem('todoList', [])
+    // }
 
     $scope.addTodo = function(todoNote) {
-        $scope.todoList.push({
+        var tempTodoItem = {
             todoNote: $scope.todoNote,
             done: false,
-            id: Math.random().toFixed('3').toString()
-        })
-        $scope.todoNote = '';
+            id: (Math.random().toFixed(3) + Math.random().toFixed(3)).toString()
+        }
+
+        $scope.todoList.push(tempTodoItem)
+
+        // console.log(localStorage.getItem('todoList'));
+
+        $scope.todoNote = ''
     }
 
     // 获取是否有todo的 done为true, 为了给clean按钮也加个ng-disabled
