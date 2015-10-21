@@ -5,8 +5,9 @@
 
 - based on angular js and materialize css
 - using localStorage to save something
-- thanks to this guy, great tuts 
+- thanks to this guys, great tuts 
 - [https://www.youtube.com/watch?v=F4djYHbyin8&index=4&list=PLBTXLYhPD8MHGMW-ZEvdAtkxyAz-N8Toj](https://www.youtube.com/watch?v=F4djYHbyin8&index=4&list=PLBTXLYhPD8MHGMW-ZEvdAtkxyAz-N8Toj) 
+- [Joe Maddalone](https://www.youtube.com/watch?v=ZBwE0mNehx8&index=24&list=PLKiuVKZics1d1rjTROMyprMQbJLNsLCoS)
 
 ## materialize css really bind to tight to forms
 
@@ -33,9 +34,11 @@ Perhaps look for another way to finish this??
 - 给 clean 和 confess按钮也添加 ng-disabled
 - 把 ngAnimate 也引用进来做些个小动画
 - 加入 localStorage 保存数据
+- clean按钮按两次就会完全清除老的数据了，这里需要改一下逻辑
 
+## done
+- using localStorage,just notice that localStorage store 'string' !!!!!!
 
 ## 测试一下 git
-
 添加一个 .gitignore 文件看看
 
