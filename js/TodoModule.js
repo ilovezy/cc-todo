@@ -20,11 +20,8 @@ todoModule.value('todoListDefault', [{
 
 todoModule.controller('todoController', ['$scope', 'todoListDefault', function($scope, todoListDefault) {
 
-    $scope.todoList = localStorage.getItem('todoList') || todoListDefault;
-
-    // if(!localStorage.getItem('todoList')) {
-    //     localStorage.setItem('todoList', [])
-    // }
+    // notice that localStorage store in 'string'
+    $scope.todoList = JSON.parse(localStorage.getItem('todoList')) || todoListDefault;
 
     $scope.addTodo = function(todoNote) {
         var tempTodoItem = {
@@ -35,8 +32,6 @@ todoModule.controller('todoController', ['$scope', 'todoListDefault', function($
 
         $scope.todoList.push(tempTodoItem)
 
-        // console.log(localStorage.getItem('todoList'));
-
         $scope.todoNote = ''
     }
 
@@ -44,7 +39,7 @@ todoModule.controller('todoController', ['$scope', 'todoListDefault', function($
     // $scope.hasDoneItem = false;
     $scope.ifDoneItem = function() {
         angular.forEach($scope.todoList, function(value, key) {
-            if(value.done) {
+            if (value.done) {
                 return true
             }
         });
@@ -58,12 +53,17 @@ todoModule.controller('todoController', ['$scope', 'todoListDefault', function($
         $scope.confessTodoList = [];
 
         angular.forEach(oldTodoList, function(todoItem, key) {
-            if(!todoItem.done) {
+            if (!todoItem.done) {
                 $scope.todoList.push(todoItem)
             } else {
                 $scope.confessTodoList.push(todoItem)
             }
         });
+
+        // using ES5 Array.filter, great
+        // $scope.todoList = $scope.todoList.filter(function(item) {
+        //     return !item.done
+        // });
     }
 
     // click confess btn to recover the deleted 'done todos'
@@ -73,4 +73,11 @@ todoModule.controller('todoController', ['$scope', 'todoListDefault', function($
         });
         $scope.confessTodoList = []
     }
+
+    // add a $watch, notice localStorage store 'string'
+    $scope.$watch('todoList', function(newValue, oldValue) {
+        if (newValue != oldValue) {
+            localStorage.setItem('todoList', JSON.stringify(newValue))
+        }
+    }, true)
 }])
