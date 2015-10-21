@@ -4,3 +4,15 @@
 - using localStorage to save something
 - thanks to this guy, great tuts 
 - [https://www.youtube.com/watch?v=F4djYHbyin8&index=4&list=PLBTXLYhPD8MHGMW-ZEvdAtkxyAz-N8Toj](https://www.youtube.com/watch?v=F4djYHbyin8&index=4&list=PLBTXLYhPD8MHGMW-ZEvdAtkxyAz-N8Toj) 
+
+## materialize css really bind to tight to forms
+
+it has to be like this
+
+    <input type="checkbox" ng-checked="{{item.done}}" id="{{item.todoNote}}" />
+    <label for="{{item.todoNote}}" style="display: block;">{{item.todoNote}}</label>
+
+this bind has to have a label[for="id"] and input[id="id"]
+really not good
+
+Perhaps look for another way to finish this??
