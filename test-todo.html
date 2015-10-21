@@ -16,16 +16,17 @@
     <div class="container" ng-controller="TodoCtrl">
         <h2 class="text-center">total todos: {{getTotalTodos()}}</h2>
 
-        <ul class="list-group">
-            <li class="list-group-item" ng-repeat="todo in todos">
+        <div class="list-group">
+            <label class="list-group-item" ng-repeat="todo in todos track by $index">
                 <input type="checkbox" ng-model="todo.done">
                 <span class="done-{{todo.done}}">{{todo.text}}</span>
-            </li>
-        </ul>
+            </label>
+        </div>
 
         <form class="form-horizontal">
-            <input type="text" class="form-control" placeholder="" ng-model="formTodoText" style="display: inline-block; max-width: 200px;">
-            <button ng-click="addTodo()" class="btn btn-default">
+            <input type="text" class="form-control" placeholder="write something" ng-model="formTodoText" style="display: inline-block; max-width: 220px;">
+
+            <button ng-click="addTodo()" ng-disabled="!formTodoText" class="btn btn-success">
                 <i class="glyphicon glyphicon-plus"></i> add
             </button>
 

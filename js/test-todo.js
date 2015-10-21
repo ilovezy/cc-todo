@@ -2,7 +2,7 @@
  * @Author: ccHotaru
  * @Date:   2015-10-21 11:50:16
  * @Last Modified by:   ccHotaru
- * @Last Modified time: 2015-10-21 12:41:20
+ * @Last Modified time: 2015-10-21 13:14:33
  */
 
 'use strict';
@@ -10,16 +10,19 @@
 var TodoModule = angular.module('TodoModule', [])
 
 TodoModule.controller('TodoCtrl', ['$scope', function($scope) {
-    $scope.todos = [{
+
+    var defaultTodos = [{
         text: 'learn angular js',
         done: false
     }, {
-        text: 'learn angular js',
+        text: 'make a little todo sample',
         done: false
     }, {
         text: 'learn angular js',
         done: false
     }]
+
+    $scope.todos = defaultTodos
 
     // $scope.totalTodos = $scope.todos.length
     $scope.getTotalTodos = function() {
@@ -34,7 +37,7 @@ TodoModule.controller('TodoCtrl', ['$scope', function($scope) {
             if(!value.done) {
                 $scope.todos.push(value)
             }
-        });
+        })
     }
 
     $scope.addTodo = function() {
@@ -42,5 +45,7 @@ TodoModule.controller('TodoCtrl', ['$scope', function($scope) {
             text: $scope.formTodoText,
             done: false
         })
+
+        $scope.formTodoText = ''
     }
 }])
