@@ -1,0 +1,28 @@
+{
+  "name": "test",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "ilovezy <1518265554@qq.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/ilovezy/aa",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4"
+  },
+  "devDependencies": {
+    "angular": "~1.4.7",
+    "Materialize": "materialize#~0.97.1",
+    "font-awesome": "~4.4.0",
+    "angular-animate": "~1.4.7",
+    "angular-ui-router": "ui-router#~0.2.15"
+  }
+}

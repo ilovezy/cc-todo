@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todoModule">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="bower_components/Materialize/dist/css/materialize.min.css">
+</head>
+
+<body>
+    <div class="container" ng-controller="todoController">
+        <h2 class="center-align">ttodo</h2>
+
+        <form name="todoForm" class="card-panel" style="overflow: hidden;">
+            <input type="text" name="todoNote" placeholder="todo what" ng-model="todoNote">
+
+            <div class="right">
+                <button class="btn waves-effect" ng-click="addTodo(todoNote)">
+                    add todo
+                </button>
+                <button class="btn waves-effect pink lighten-3 " ng-click="cleanTodo()">clean</button>
+            </div>
+        </form>
+
+        <ul class="collection z-depth-1">
+            <li class="collection-item" ng-repeat="item in todoList">
+                <input type="checkbox" id="{{item.todoNote}}" />
+                <label for="{{item.todoNote}}" style="display: block;">{{item.todoNote}}</label>
+            </li>
+        </ul>
+
+
+    </div>
+
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/Materialize/dist/js/materialize.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="js/todoModule.js"></script>
+</body>
+
+</html>
