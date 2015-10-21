@@ -34,3 +34,6 @@ Perhaps look for another way to finish this??
 - 把 ngAnimate 也引用进来做些个小动画
 - 加入 localStorage 保存数据
 
+
+## 测试一下 git
+
