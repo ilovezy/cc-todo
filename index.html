@@ -4,31 +4,39 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="bower_components/Materialize/dist/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <style>
+    .done-true {
+        text-decoration: line-through;
+    }
+    </style>
 </head>
 
-<body>
+<body class="blue-grey">
+    <br>
     <div class="container" ng-controller="todoController">
-        <h2 class="center-align">ttodo</h2>
+        <h2 class="center-align white-text">cc Todo</h2>
 
         <form name="todoForm" class="card-panel" style="overflow: hidden;">
-            <input type="text" name="todoNote" placeholder="todo what" ng-model="todoNote">
-
+            <div class="input-field">
+                <i class="fa fa-pencil-square-o prefix"></i>
+                <input type="text" name="todoNote" placeholder="todo what" ng-model="todoNote">
+            </div>
             <div class="right">
                 <button class="btn waves-effect" ng-click="addTodo(todoNote)" ng-disabled="!todoNote">
                     add todo
                 </button>
-                <button class="btn waves-effect red lighten-2" ng-click="cleanTodo()">clean</button>
+                <button class="btn waves-effect red lighten-2" ng-click="cleanTodo()" ng-disabled="ifDoneItem()">clean</button>
             </div>
         </form>
 
+        <!-- todo list -->
         <ul class="collection z-depth-1">
             <li class="collection-item" ng-repeat="item in todoList">
                 <input type="checkbox" ng-checked="{{item.done}}" ng-model="item.done" id="{{item.id}}" />
-                <label for="{{item.id}}" style="display: block;">{{item.todoNote}}</label>
+                <label for="{{item.id}}" ng-class="{'done-true': item.done}" style="display: block; overflow: hidden;">{{item.todoNote}}</label>
             </li>
         </ul>
-
-
     </div>
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>

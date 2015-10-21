@@ -1,4 +1,7 @@
-## This is a todo
+## This is a cute cc todo
+
+### 这是截图
+![cc-todo-screenshot](file:./img/cc-todo.png "cc-todo")
 
 - based on angular js and materialize css
 - using localStorage to save something
