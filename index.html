@@ -9,6 +9,16 @@
     .done-true {
         text-decoration: line-through;
     }
+    
+    .clearfix:before,
+    .clearfix:after {
+        display: table;
+        content: " ";
+    }
+    
+    .clearfix:after {
+        clear: both;
+    }
     </style>
 </head>
 
@@ -17,24 +27,31 @@
     <div class="container" ng-controller="todoController">
         <h2 class="center-align white-text">cc Todo</h2>
 
-        <form name="todoForm" class="card-panel" style="overflow: hidden;">
+        <form name="todoForm" class="card-panel clearfix">
             <div class="input-field">
                 <i class="fa fa-pencil-square-o prefix"></i>
-                <input type="text" name="todoNote" placeholder="todo what" ng-model="todoNote">
+                <input type="text" name="todoNote" placeholder="todo something" ng-model="todoNote">
             </div>
             <div class="right">
                 <button class="btn waves-effect" ng-click="addTodo(todoNote)" ng-disabled="!todoNote">
-                    add todo
+                    <i class="fa fa-plus left"></i> add
                 </button>
-                <button class="btn waves-effect red lighten-2" ng-click="cleanTodo()" ng-disabled="ifDoneItem()">clean</button>
+
+                <button class="btn waves-effect red lighten-2" ng-click="cleanTodo()" ng-disabled="ifDoneItem()">
+                    <i class="fa fa-trash left"></i> clean
+                </button>
+
+                <button class="btn waves-effect green" ng-click="confessTodo()">
+                    <i class="fa fa-undo"></i> confess
+                </button>
             </div>
         </form>
 
         <!-- todo list -->
         <ul class="collection z-depth-1">
-            <li class="collection-item" ng-repeat="item in todoList">
+            <li class="collection-item" ng-repeat="item in todoList track by $index">
                 <input type="checkbox" ng-checked="{{item.done}}" ng-model="item.done" id="{{item.id}}" />
-                <label for="{{item.id}}" ng-class="{'done-true': item.done}" style="display: block; overflow: hidden;">{{item.todoNote}}</label>
+                <label for="{{item.id}}" ng-class="{'done-true': item.done}">{{item.todoNote}}</label>
             </li>
         </ul>
     </div>

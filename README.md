@@ -29,3 +29,8 @@ Perhaps look for another way to finish this??
 打开控制台 `npm install` 之后 `bower install`
 然后再浏览器打开就能看到效果了
 
+## Todo
+- 给 clean 和 confess按钮也添加 ng-disabled
+- 把 ngAnimate 也引用进来做些个小动画
+- 加入 localStorage 保存数据
+
