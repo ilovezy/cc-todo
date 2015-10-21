@@ -23,16 +23,14 @@
 
         <ul class="collection z-depth-1">
             <li class="collection-item" ng-repeat="item in todoList">
-                <input type="checkbox" ng-checked="{{item.done}}" id="{{item.todoNote}}" />
-                <label for="{{item.todoNote}}" style="display: block;">{{item.todoNote}}</label>
+                <input type="checkbox" ng-checked="{{item.done}}" ng-model="item.done" id="{{item.id}}" />
+                <label for="{{item.id}}" style="display: block;">{{item.todoNote}}</label>
             </li>
         </ul>
 
 
     </div>
 
-    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="bower_components/Materialize/dist/js/materialize.min.js"></script>
     <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="js/todoModule.js"></script>
 </body>

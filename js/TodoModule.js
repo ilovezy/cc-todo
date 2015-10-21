@@ -4,22 +4,27 @@ todoModule.controller('todoController', ['$scope', function($scope) {
 
     $scope.todoList = [{
         todoNote: 'helloworld',
-        done: true
+        done: true,
+        id: 'a'
     }, {
         todoNote: 'hellocc',
-        done: false
+        done: false,
+        id: 'b'
     }, {
         todoNote: 'hellozy',
-        done: false
+        done: false,
+        id: 'c'
     }, {
         todoNote: 'helloqq',
-        done: false
+        done: false,
+        id: 'd'
     }];
 
     $scope.addTodo = function(todoNote) {
         $scope.todoList.push({
             todoNote: $scope.todoNote,
-            done: false
+            done: false,
+            id: Math.random().toFixed('3').toString()
         })
 
         $scope.todoNote = '';
