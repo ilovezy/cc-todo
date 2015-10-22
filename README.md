@@ -41,4 +41,5 @@ Perhaps look for another way to finish this??
 
 ## 测试一下 git
 添加一个 .gitignore 文件看看
+update README.MD
 
