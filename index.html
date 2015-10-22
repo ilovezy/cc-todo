@@ -5,21 +5,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="bower_components/Materialize/dist/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.min.css">
-    <style>
-    .done-true {
-        text-decoration: line-through;
-    }
-    
-    .clearfix:before,
-    .clearfix:after {
-        display: table;
-        content: " ";
-    }
-    
-    .clearfix:after {
-        clear: both;
-    }
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/index-animate.css">
 </head>
 
 <body class="blue-grey">
@@ -37,7 +23,7 @@
                     <i class="fa fa-plus left"></i> add
                 </button>
 
-                <button class="btn waves-effect red lighten-2" ng-click="cleanTodo()" ng-disabled="ifDoneItem()">
+                <button class="btn waves-effect red lighten-2" ng-click="cleanTodo()">
                     <i class="fa fa-trash left"></i> clean
                 </button>
 
@@ -59,6 +45,7 @@
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/Materialize/dist/js/materialize.min.js"></script>
     <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
     <script type="text/javascript" src="js/todoModule.js"></script>
 </body>
 
